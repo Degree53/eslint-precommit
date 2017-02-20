@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const git = require('git-utils');
 const CLIEngine = require('eslint').CLIEngine;
 const path = require('path');
