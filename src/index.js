@@ -5,10 +5,16 @@ const path = require('path');
 
 const options = require('minimist')(process.argv.slice(2), {
 	alias: {
+		config: 'c',
 		extensions: 'ext'
 	},
+	boolean: ['no-eslintrc'],
 	default: {
-		extensions: ['.js']
+		config: null,
+		env: [],
+		extensions: ['.js'],
+		global: [],
+		'no-eslintrc': false
 	}
 });
 
@@ -41,7 +47,12 @@ const stagedFiles = Object.keys(repository.getStatus())
 repository.release();
 
 // Create an instance of eslint
-const eslint = new CLIEngine();
+const eslint = new CLIEngine({
+	configFile: options.config,
+	env: options.env,
+	globals: options.global,
+	useEslintrc: !options['no-eslintrc']
+});
 
 // lint files
 const result = eslint.executeOnFiles(stagedFiles);
