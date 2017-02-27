@@ -8,13 +8,22 @@ const options = require('minimist')(process.argv.slice(2), {
 		config: 'c',
 		extensions: 'ext'
 	},
-	boolean: ['no-eslintrc'],
+	boolean: ['no-eslintrc', 'cache', 'ignore', 'no-inline-config'],
 	default: {
 		config: null,
 		env: [],
 		extensions: ['.js'],
 		global: [],
-		'no-eslintrc': false
+		'no-eslintrc': false,
+		parser: 'espree',
+		cache: false,
+		'cache-location': '.eslintrc',
+		rulesdir: [],
+		plugin: [],
+		'no-ignore': false,
+		'ignore-path': null,
+		'ignore-pattern': [],
+		'no-inline-config': false
 	}
 });
 
@@ -46,13 +55,25 @@ const stagedFiles = Object.keys(repository.getStatus())
 // release the repo
 repository.release();
 
-// Create an instance of eslint
-const eslint = new CLIEngine({
+const cliEngineOptions = {
 	configFile: options.config,
 	env: options.env,
 	globals: options.global,
-	useEslintrc: !options['no-eslintrc']
-});
+	useEslintrc: !options['no-eslintrc'],
+	parser: options.parser,
+	cache: options.cache,
+	cacheLocation: options['cache-location'],
+	rulesPaths: options.rulesdir,
+	plugins: options.plugin,
+	ignore: !options['no-ignore'],
+	ignorePath: options['ignore-path'],
+	ignorePattern: options['ignore-pattern'],
+	allowInlineConfig: !options['no-inline-config']
+}
+
+
+// Create an instance of eslint
+const eslint = new CLIEngine(cliEngineOptions);
 
 // lint files
 const result = eslint.executeOnFiles(stagedFiles);
