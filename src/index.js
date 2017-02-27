@@ -36,8 +36,8 @@ const stagedFiles = Object.keys(repository.getStatus())
 		}
 
 		return options._
-			.map((dir => path.normalize(path.join(process.cwd(), dir))))
-			.some(dir => new RegExp(`^${dir}`).test(filepath));
+			.map(dir => path.normalize(path.join(process.cwd(), dir)))
+			.some(dir => filepath.indexOf(dir) === 0);
 	})
 
 	// match only those with the desired extensions
