@@ -2,14 +2,17 @@
   "name": "eslint-staged",
   "version": "0.1.0",
   "description": "Validate git staged files with ESLint",
-  "main": "src/index.js",
-  "bin": "src/index.js",
+  "main": "src/app.js",
+  "bin": "bin/eslint-staged",
   "repository": "https://github.com/Degree53/eslint-staged.git",
   "author": "Degree 53",
   "license": "MIT",
   "dependencies": {
     "eslint": "3.*.*",
     "git-utils": "^4.1.4",
-    "minimist": "^1.2.0"
+    "optionator": "^0.8.2"
+  },
+  "devDependencies": {
+    "di": "^0.0.1"
   }
 }

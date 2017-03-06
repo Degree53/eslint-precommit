@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+//------------------------------------------------------------------------------
+// Requirements
+//------------------------------------------------------------------------------
+
+import optionator from '../src/options';
+import Linter from '../src/app'
+import eslint from 'eslint';
+
+//------------------------------------------------------------------------------
+// Execution
+//------------------------------------------------------------------------------
+
+// parse CLI arguments
+const options = optionator.parseArgv(process.argv);
+
+// execute to get the report of the staged files
+const report = new Linter().execute(options);
+
+// get the eslint formatter
+const formatter = eslint.getFormatter();
+
+// output the results
+console.log(formatter(result.results));
+
+// exit 0 if no errors, otherwise exit 1
+process.exit(report.errorCount > 0 ? 1 : 0);
