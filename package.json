@@ -7,12 +7,21 @@
   "repository": "https://github.com/Degree53/eslint-staged.git",
   "author": "Degree 53",
   "license": "MIT",
+  "scripts": {
+    "prepublish": "babel src --out-dir dist"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "dependencies": {
     "eslint": "3.*.*",
     "git-utils": "^4.1.4",
     "optionator": "^0.8.2"
   },
   "devDependencies": {
-    "di": "^0.0.1"
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0"
   }
 }

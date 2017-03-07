@@ -2,7 +2,6 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-import {annotate, inject} from 'di';
 import {CLIEngine} from 'eslint';
 import git from 'git-utils';
 import path from 'path';
@@ -20,7 +19,7 @@ export default class Linter {
     const linterArgs = translateOptions(options);
 
     // Create an instance of the CLIEngine
-    const linter = CLIEngine(linterArgs);
+    const linter = new CLIEngine(linterArgs);
 
     // Get the git repo from the working directory
     const repository = git.open(process.cwd());

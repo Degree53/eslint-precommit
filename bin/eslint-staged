@@ -4,25 +4,27 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-import optionator from '../src/options';
-import Linter from '../src/app'
-import eslint from 'eslint';
+var eslint = require('eslint').CLIEngine;
+
+// src/ folder is transpiled using babel, so we need to use the .default property
+var optionator = require('../dist/options').default;
+var Linter = require('../dist/app').default;
 
 //------------------------------------------------------------------------------
 // Execution
 //------------------------------------------------------------------------------
 
 // parse CLI arguments
-const options = optionator.parseArgv(process.argv);
+var options = optionator.parseArgv(process.argv);
 
 // execute to get the report of the staged files
-const report = new Linter().execute(options);
+var report = new Linter().execute(options);
 
 // get the eslint formatter
-const formatter = eslint.getFormatter();
+var formatter = eslint.getFormatter();
 
 // output the results
-console.log(formatter(result.results));
+console.log(formatter(report.results));
 
 // exit 0 if no errors, otherwise exit 1
 process.exit(report.errorCount > 0 ? 1 : 0);

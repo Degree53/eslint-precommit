@@ -6,7 +6,7 @@
  * @returns {CLIEngineOptions} The options object for the CLIEngine.
  * @private
  */
-function translateOptions(cliOptions) {
+export default function translateOptions(cliOptions) {
     return {
         envs: cliOptions.env,
         extensions: cliOptions.ext,
