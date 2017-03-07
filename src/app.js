@@ -13,7 +13,7 @@ import translateOptions from './translate-options';
 
 export default class Linter {
 
-	execute (options, paths = []) {
+	execute (options, paths = options._) {
 
 		// Translate CLI options to those needed by CLIEngine
 		const linterArgs = translateOptions(options);
@@ -32,6 +32,11 @@ export default class Linter {
 
 			// Normalize all paths, and make them absolute
 			.map(filepath => path.normalize(path.join(process.cwd(), filepath)))
+
+			// Filter by extension (CLIEngine won't do this for us)
+			.filter(filepath => linterArgs.extensions.some(ext =>
+				new RegExp(`${ext.replace(/\./, '\\.')}$`).test(filepath))
+			)
 
 			// Filter by folder (if provided)
 			.filter(filepath => {
