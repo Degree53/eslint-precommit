@@ -5,17 +5,9 @@
  * @author George Zahariev
  */
 
-// ------------------------------------------------------------------------------
-// Requirements
-// ------------------------------------------------------------------------------
-
 import optionator from 'optionator';
 
-// ------------------------------------------------------------------------------
-// Initialization and Public Interface
-// ------------------------------------------------------------------------------
-
-// exports 'parse(args)', 'generateHelp()', and 'generateHelpForOption(optionName)'
+// exports 'parse(args)', parseArgv(args), 'generateHelp()', and 'generateHelpForOption(optionName)'
 export default optionator({
 	prepend: 'eslint-staged [options] file.js [file.js] [dir]',
 	defaults: {

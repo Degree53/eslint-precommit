@@ -4,7 +4,6 @@
  * Translates the CLI options into the options expected by the CLIEngine.
  * @param {Object} cliOptions The CLI options to translate.
  * @returns {CLIEngineOptions} The options object for the CLIEngine.
- * @private
  */
 export default function translateOptions (cliOptions) {
 	return {

@@ -1,15 +1,7 @@
-// ------------------------------------------------------------------------------
-// Requirements
-// ------------------------------------------------------------------------------
-
 import {CLIEngine} from 'eslint';
 import git from 'git-utils';
 import path from 'path';
 import translateOptions from './translate-options';
-
-// ------------------------------------------------------------------------------
-// Class Definition
-// ------------------------------------------------------------------------------
 
 export default class Linter {
 
