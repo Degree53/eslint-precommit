@@ -1,121 +1,127 @@
 {
-	"name": "eslint-staged",
-	"version": "0.1.0",
-	"description": "Validate git staged files with ESLint",
-	"main": "src/app.js",
-	"bin": "bin/eslint-staged",
-	"repository": "https://github.com/Degree53/eslint-staged.git",
-	"author": "Degree 53",
-	"license": "MIT",
-	"scripts": {
-		"precommit": "eslint src/ test/",
-		"prepublish": "babel src --out-dir dist",
-		"test": "mocha --compilers js:babel-core/register --require .conf/mocha.config.js"
-	},
-	"babel": {
-		"presets": [
-			"es2015"
-		]
-	},
-	"dependencies": {
-		"eslint": "3.*.*",
-		"git-utils": "^4.1.4",
-		"optionator": "^0.8.2"
-	},
-	"devDependencies": {
-		"babel-cli": "^6.23.0",
-		"babel-core": "^6.23.1",
-		"babel-eslint": "^7.1.1",
-		"babel-preset-es2015": "^6.22.0",
-		"chai": "^3.5.0",
-		"dirty-chai": "^1.2.2",
-		"eslint-config-degree53-core": "^3.0.11",
-		"eslint-config-degree53-es6": "^3.0.1",
-		"mocha": "^3.2.0"
-	},
-	"eslintConfig": {
-		"env": {
-			"node": true
-		},
-		"extends": [
-			"degree53-core",
-			"degree53-es6"
-		],
-		"parser": "babel-eslint",
-		"root": true,
-		"rules": {
-			"complexity": [
-				1,
-				{
-					"max": 5
-				}
-			],
-			"id-blacklist": 0,
-			"no-confusing-arrow": 0,
-			"no-negated-condition": 1,
-			"no-shadow": [
-				2,
-				{
-					"allow": [
-						"name",
-						"root",
-						"open",
-						"status"
-					],
-					"builtinGlobals": true,
-					"hoist": "all"
-				}
-			],
-			"no-warning-comments": 1,
-			"no-magic-numbers": [
-				1,
-				{
-					"ignore": [
-						-1,
-						0,
-						1,
-						2
-					]
-				}
-			],
-			"no-undefined": 0,
-			"operator-linebreak": [
-				2,
-				"after",
-				{
-					"overrides": {
-						":": "ignore"
-					}
-				}
-			],
-			"quotes": [
-				2,
-				"single",
-				"avoid-escape"
-			],
-			"quote-props": [
-				2,
-				"as-needed",
-				{
-					"keywords": false,
-					"numbers": false,
-					"unnecessary": false
-				}
-			],
-			"valid-jsdoc": [
-				2,
-				{
-					"matchDescription": ".*",
-					"prefer": {
-						"return": "returns"
-					},
-					"preferType": {},
-					"requireParamDescription": true,
-					"requireReturn": false,
-					"requireReturnDescription": true,
-					"requireReturnType": true
-				}
-			]
-		}
-	}
+  "name": "eslint-staged",
+  "version": "0.1.0",
+  "description": "Validate git staged files with ESLint",
+  "main": "src/app.js",
+  "bin": "bin/eslint-staged",
+  "repository": "https://github.com/Degree53/eslint-staged.git",
+  "author": "Degree 53",
+  "license": "MIT",
+  "scripts": {
+    "precommit": "eslint src/ test/",
+    "prepublish": "babel src --out-dir dist",
+    "test": "mocha --compilers js:babel-core/register --require .conf/mocha.config.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "dependencies": {
+    "eslint": "3.*.*",
+    "git-utils": "^4.1.4",
+    "optionator": "^0.8.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
+    "chai": "^3.5.0",
+    "cz-conventional-changelog": "^2.0.0",
+    "dirty-chai": "^1.2.2",
+    "eslint-config-degree53-core": "^3.0.11",
+    "eslint-config-degree53-es6": "^3.0.1",
+    "mocha": "^3.2.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "degree53-core",
+      "degree53-es6"
+    ],
+    "parser": "babel-eslint",
+    "root": true,
+    "rules": {
+      "complexity": [
+        1,
+        {
+          "max": 5
+        }
+      ],
+      "id-blacklist": 0,
+      "no-confusing-arrow": 0,
+      "no-negated-condition": 1,
+      "no-shadow": [
+        2,
+        {
+          "allow": [
+            "name",
+            "root",
+            "open",
+            "status"
+          ],
+          "builtinGlobals": true,
+          "hoist": "all"
+        }
+      ],
+      "no-warning-comments": 1,
+      "no-magic-numbers": [
+        1,
+        {
+          "ignore": [
+            -1,
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "no-undefined": 0,
+      "operator-linebreak": [
+        2,
+        "after",
+        {
+          "overrides": {
+            ":": "ignore"
+          }
+        }
+      ],
+      "quotes": [
+        2,
+        "single",
+        "avoid-escape"
+      ],
+      "quote-props": [
+        2,
+        "as-needed",
+        {
+          "keywords": false,
+          "numbers": false,
+          "unnecessary": false
+        }
+      ],
+      "valid-jsdoc": [
+        2,
+        {
+          "matchDescription": ".*",
+          "prefer": {
+            "return": "returns"
+          },
+          "preferType": {},
+          "requireParamDescription": true,
+          "requireReturn": false,
+          "requireReturnDescription": true,
+          "requireReturnType": true
+        }
+      ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
