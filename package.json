@@ -8,10 +8,11 @@
   "author": "Degree 53",
   "license": "MIT",
   "scripts": {
-    "precommit": "eslint src/ test/",
     "commit": "git-cz",
+    "precommit": "eslint src/ test/",
     "prepublish": "babel src --out-dir dist",
-    "test": "mocha --compilers js:babel-core/register --require .conf/mocha.config.js"
+    "test": "mocha --compilers js:babel-core/register --require .conf/mocha.config.js",
+    "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "babel": {
     "presets": [
@@ -30,10 +31,12 @@
     "babel-preset-es2015": "^6.22.0",
     "chai": "^3.5.0",
     "commitizen": "^2.9.6",
+    "conventional-changelog-cli": "^1.2.0",
     "cz-conventional-changelog": "^2.0.0",
     "dirty-chai": "^1.2.2",
     "eslint-config-degree53-core": "^3.0.11",
     "eslint-config-degree53-es6": "^3.0.1",
+    "husky": "^0.13.2",
     "mocha": "^3.2.0"
   },
   "eslintConfig": {
